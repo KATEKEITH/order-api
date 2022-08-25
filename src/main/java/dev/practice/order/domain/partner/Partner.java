@@ -24,7 +24,6 @@ public class Partner extends AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String partnerToken;
-
     private String partnerName;
     private String businessNo;
     private String email;
