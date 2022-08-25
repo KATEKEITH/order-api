@@ -18,6 +18,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name="partners")
 public class Partner extends AbstractEntity {
+    private static final String PREFIX_PARTNER = "ptn_";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +46,7 @@ public class Partner extends AbstractEntity {
         if (StringUtils.isEmpty(businessNo)) throw new RuntimeException("empty businessNo");
         if (StringUtils.isEmpty(email)) throw new RuntimeException("empty email");
 
-        this.partnerToken = TokenGenerator.randomCharacterWithPrefix("ptn_");
+        this.partnerToken = TokenGenerator.randomCharacterWithPrefix(PREFIX_PARTNER);
         this.partnerName = partnerName;
         this.businessNo = businessNo;
         this.email = email;
