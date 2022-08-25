@@ -14,6 +14,7 @@ import javax.persistence.*;
 
 
 @Slf4j
+@Getter
 @Entity
 @NoArgsConstructor
 @Table(name="partners")
