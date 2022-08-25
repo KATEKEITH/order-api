@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -40,9 +41,9 @@ public class Partner {
 
     @Builder
     public Partner(String partnerName, String businessNo, String email) {
-        if (partnerName == null) throw new RuntimeException("empty partnerName");
-        if (businessNo == null) throw new RuntimeException("empty businessNo");
-        if (email == null) throw new RuntimeException("empty email");
+        if (StringUtils.isEmpty(partnerName)) throw new RuntimeException("empty partnerName");
+        if (StringUtils.isEmpty(businessNo)) throw new RuntimeException("empty businessNo");
+        if (StringUtils.isEmpty(email)) throw new RuntimeException("empty email");
 
         this.partnerToken = "abcde";
         this.partnerName = partnerName;
