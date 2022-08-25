@@ -1,6 +1,7 @@
 package dev.practice.order.domain.partner;
 
 
+import dev.practice.order.common.util.TokenGenerator;
 import dev.practice.order.domain.AbstractEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -44,7 +45,7 @@ public class Partner extends AbstractEntity {
         if (StringUtils.isEmpty(businessNo)) throw new RuntimeException("empty businessNo");
         if (StringUtils.isEmpty(email)) throw new RuntimeException("empty email");
 
-        this.partnerToken = "abcde";
+        this.partnerToken = TokenGenerator.randomCharacterWithPrefix("ptn_");
         this.partnerName = partnerName;
         this.businessNo = businessNo;
         this.email = email;
